@@ -8,6 +8,10 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v2
-      - name: Install Kind
+
+      - name: Make scripts executable
+        run: find app/ -type f -iname "*.sh" -exec chmod +x {} \;
+
+      - name: Install Azuracast with Docker
         run: app/web_radio_install.sh
         shell: bash
