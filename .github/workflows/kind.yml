@@ -1,0 +1,13 @@
+name: Test with Kind
+
+on: [push]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Kind
+        run: app/web_radio_install.sh
+        shell: bash
